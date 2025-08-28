@@ -61,5 +61,33 @@ for(const btn of Callingbutton){
     
 }
 
+//  Copy button function...
+
+ let copycount = 0;
+
+ const CopycountElement = document.getElementById('Copy-counts')
+ const CopyButtons = document.getElementsByClassName('Copy-Button')
+
+  for(const button of CopyButtons){
+
+    button.addEventListener('click', function(){
+
+        const card = button.closest('.card')
+
+        const servicenumberEl = card.querySelector('.service-number')
+        const Number = servicenumberEl.innerText
+
+    navigator.clipboard.writeText(Number).then(function(){
+
+        copycount++
+        CopycountElement.innerText = copycount;
+
+        alert(`Hotline number ${Number} copied successfully!`)
+    })
+        
+    })
+    
+  }
+
  
 
